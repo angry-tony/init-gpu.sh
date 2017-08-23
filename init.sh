@@ -7,6 +7,9 @@ sudo apt-get -qq -y update
 sudo apt-get -qq -y install python3 python3-pip
 sudo pip3 install -U pip
 sudo pip3 install pew
+
+# until https://github.com/fchollet/keras/pull/7566/files/f2b66a02067cd5a0bc7291231c5fe59f355ff2ad#r134733445
+# use keras 2.0.6 and not 2.0.7
 pew new \
   -d \
   -i sklearn \
@@ -14,7 +17,7 @@ pew new \
   -i numpy \
   -i scipy \
   -i matplotlib \
-  -i keras \
+  -i Keras==2.0.6 \
   -i tensorflow \
   -i h5py \
   -i slackclient \
