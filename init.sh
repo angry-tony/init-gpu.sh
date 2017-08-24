@@ -3,7 +3,7 @@
 # ssh file.pem user@ip "wget URL_OF_THIS_GIST -O - | /bin/sh"
 #
 # In the below, the following are for running on gpu:
-# - nvidia-cuda-dev
+# - nvidia-cuda-dev: slowest command, takes 2-3 mins
 # - tensorflow-gpu
 # - wget ...nvidia.com...
 
