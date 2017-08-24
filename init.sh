@@ -3,19 +3,22 @@
 # ssh file.pem user@ip "wget URL_OF_THIS_GIST -O - | /bin/sh"
 #
 # In the below, the following are for running on gpu:
-# - nvidia-cuda-dev: slowest command, takes 2-3 mins
+# - apt-get ... nvidia-*
+#    - slowest command, takes 2-3 mins
+#    - https://stackoverflow.com/a/45725925/4126114
 # - tensorflow-gpu
 # - wget ...nvidia.com...
 
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get -qq -y update
-sudo apt-get -qq -y install python3 python3-pip nvidia-cuda-dev
+sudo apt-get -qq -y install python3 python3-pip nvidia-375 nvidia-375-dev nvidia-cuda-dev
 
 # for GPU, install nvidia driver
 # ??? Did I miss the: wget http://...nvidia.com/.../...deb
 #                and  dpkg -i ...deb
-wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
-sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
+# EDIT: replaced by apt-get install nvidia-375... above
+# wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
+# sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
 
 sudo pip3 install -U pip
 sudo pip3 install pew
