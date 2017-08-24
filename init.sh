@@ -19,6 +19,7 @@ pew new \
   -i matplotlib \
   -i Keras==2.0.6 \
   -i tensorflow \
+  -i tensorflow-gpu \
   -i h5py \
   -i slackclient \
   -i scikit-image \
