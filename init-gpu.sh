@@ -16,10 +16,16 @@
 # Ref: https://stackoverflow.com/a/44993396/4126114
 #--------------------------------------------------
 
-# Install nvidia driver + nvidia-cuda development header files
-export DEBIAN_FRONTEND=noninteractive
-sudo apt-get -qq -y update
-sudo apt-get -qq -y install nvidia-cuda-dev nvidia-375 nvidia-375-dev
+set -e
+
+# for GPU, install nvidia driver
+# ??? Did I miss the: wget http://...nvidia.com/.../...deb
+#                and  dpkg -i ...deb
+wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
+sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
+
+# verify nvidia driver installed ok
+nvidia-smi -q|head
 
 # install cuda 8
 # https://developer.nvidia.com/cuda-downloads
@@ -28,13 +34,12 @@ sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo apt-get update
 sudp apt-get install cuda
 
-
-# for GPU, install nvidia driver
-# ??? Did I miss the: wget http://...nvidia.com/.../...deb
-#                and  dpkg -i ...deb
-# EDIT: replaced by apt-get install nvidia-375... above
-# wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
-# sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
+# Install nvidia driver + nvidia-cuda development header files
+# comment out  nvidia-375 nvidia-375-dev
+# not sure if needed
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get -qq -y update
+sudo apt-get -qq -y install nvidia-cuda-dev
 
 # install nvidia cudnn 6 (works with tensorflow-gpu 1.3.0)
 # https://developer.nvidia.com/cudnn
@@ -46,12 +51,6 @@ sudo dpkg -i libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb
   
 # install tensorflow-gpu
 pew in G2ML pip install tensorflow-gpu
-
-# verify installations
-set -e
-
-# verify nvidia driver installed ok
-nvidia-smi -q|head
 
 # check no trouble with finding libraries
 pew in G2ML python -c "import tensorflow"
