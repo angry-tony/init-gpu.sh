@@ -29,6 +29,10 @@ sudo pip3 install pew
 
 # until https://github.com/fchollet/keras/pull/7566/files/f2b66a02067cd5a0bc7291231c5fe59f355ff2ad#r134733445
 # use keras 2.0.6 and not 2.0.7
+#
+# Installing CUDA8 required 2GB free space, and my EC2 /dev/xvda was only 8GB
+# Instead of downloading CUDA8, and since I already had CUDA7.5, just use tensorflow version 1.2.0
+# https://stackoverflow.com/a/44993396/4126114
 pew new \
   -d \
   -i sklearn \
@@ -37,7 +41,7 @@ pew new \
   -i scipy \
   -i matplotlib \
   -i Keras==2.0.6 \
-  -i tensorflow \
+  -i tensorflow==1.2.0 \
   -i tensorflow-gpu \
   -i h5py \
   -i slackclient \
