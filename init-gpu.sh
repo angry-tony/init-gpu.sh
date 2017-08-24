@@ -36,6 +36,15 @@ sudp apt-get install cuda
 # wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
 # sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
 
+# install nvidia cudnn
+# https://developer.nvidia.com/cudnn
+# Log in / Download / Download cuDNN v7.0 (August 3, 2017), for CUDA 8.0 / cuDNN v7.0 Runtime Library for Ubuntu16.04 (Deb)
+wget \
+  http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7_7.0.1.13-1%2Bcuda8.0_amd64.deb?fwTq3D8wejw7jmLp2WZyqpHmjbVj2xAx_JvFPgYYjlJ9f7ODnCNq2jFCzMq_7LslIOnsFVBf6Ev7I7nmUqDrf30c-TzCzDx19c2HVe1v3qOt3_uKQUApYoYPHvWu7-nwxDe93uhELlvR1bnisbknf6x_FxnPJCCTmMIsxB5m8ZBb13yHJucvrbefTo6sSklmCxaP_bPjITMQLdwcRL9o5WLbvwOzIzLQkOv2ohd25VY0IA \
+  -O libcudnn7_7.0.1.13-1%2Bcuda8.0_amd64.deb
+sudo dpkg -i libcudnn7_7.0.1.13-1%2Bcuda8.0_amd64.deb
+
+
 # install tensorflow-gpu
 pew in G2ML pip install tensorflow-gpu
 
