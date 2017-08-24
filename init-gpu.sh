@@ -24,6 +24,8 @@ sudo apt-get -qq -y install nvidia-cuda-dev nvidia-375 nvidia-375-dev
 # install cuda 8
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo apt-get update
+sudp apt-get install cuda
 
 
 # for GPU, install nvidia driver
