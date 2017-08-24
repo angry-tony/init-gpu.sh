@@ -10,10 +10,21 @@
 #      - https://stackoverflow.com/a/44993396/4126114
 # - tensorflow-gpu
 # - wget ...nvidia.com...
+#
+# Installing CUDA8 required 2GB free space, and the default EC2 /dev/xvda has only 8GB
+# Pay attention to increasing this beforehand
+# Ref: https://stackoverflow.com/a/44993396/4126114
+#--------------------------------------------------
 
+# Install nvidia driver + nvidia-cuda development header files
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get -qq -y update
 sudo apt-get -qq -y install nvidia-cuda-dev nvidia-375 nvidia-375-dev
+
+# install cuda 8
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+
 
 # for GPU, install nvidia driver
 # ??? Did I miss the: wget http://...nvidia.com/.../...deb
@@ -22,11 +33,5 @@ sudo apt-get -qq -y install nvidia-cuda-dev nvidia-375 nvidia-375-dev
 # wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
 # sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
 
-# Installing CUDA8 required 2GB free space, and my EC2 /dev/xvda was only 8GB
-# Instead of downloading CUDA8, and since I already had CUDA7.5, just use tensorflow version 1.2.0
-# https://stackoverflow.com/a/44993396/4126114
-pew new \
-  -d \
-  -i tensorflow==1.2.0 \
-  -i tensorflow-gpu \
-  G2ML
+# install tensorflow-gpu
+pew in G2ML pip install tensorflow-gpu
