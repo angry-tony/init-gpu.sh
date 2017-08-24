@@ -1,10 +1,22 @@
 #!/bin/sh
 # Use this when launching a new server, e.g. AWS GPU spot instance
 # ssh file.pem user@ip "wget URL_OF_THIS_GIST -O - | /bin/sh"
+#
+# In the below, the following are for running on gpu:
+# - nvidia-cuda-dev
+# - tensorflow-gpu
+# - wget ...nvidia.com...
 
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get -qq -y update
-sudo apt-get -qq -y install python3 python3-pip
+sudo apt-get -qq -y install python3 python3-pip nvidia-cuda-dev
+
+# for GPU, install nvidia driver
+# ??? Did I miss the: wget http://...nvidia.com/.../...deb
+#                and  dpkg -i ...deb
+wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
+sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
+
 sudo pip3 install -U pip
 sudo pip3 install pew
 
