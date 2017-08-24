@@ -38,3 +38,13 @@ sudp apt-get install cuda
 
 # install tensorflow-gpu
 pew in G2ML pip install tensorflow-gpu
+
+# verify installations
+nvidia-smi -q|head
+
+# check no trouble with finding libraries
+pew in G2ML python -c "import tensorflow"
+
+# check tensorflow can see gpu
+# https://stackoverflow.com/a/44547144/4126114
+pew in G2ML python -c "from tensorflow.python.client import device_lib; print(device_lib.list_local_devices())"
