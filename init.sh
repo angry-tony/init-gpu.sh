@@ -4,8 +4,10 @@
 #
 # In the below, the following are for running on gpu:
 # - apt-get ... nvidia-*
-#    - slowest command, takes 2-3 mins
 #    - https://stackoverflow.com/a/45725925/4126114
+#    - slowest command, takes 2-3 mins
+#    - requires `export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/`
+#      - https://stackoverflow.com/a/43568508/4126114
 # - tensorflow-gpu
 # - wget ...nvidia.com...
 
