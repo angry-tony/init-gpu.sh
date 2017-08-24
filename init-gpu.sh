@@ -48,6 +48,9 @@ sudo dpkg -i libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb
 pew in G2ML pip install tensorflow-gpu
 
 # verify installations
+set -e
+
+# verify nvidia driver installed ok
 nvidia-smi -q|head
 
 # check no trouble with finding libraries
