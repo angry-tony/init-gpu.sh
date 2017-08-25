@@ -35,13 +35,6 @@ sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo apt-get update
 sudo apt-get install cuda
 
-# Install nvidia driver + nvidia-cuda development header files
-# comment out  nvidia-375 nvidia-375-dev
-# not sure if needed
-export DEBIAN_FRONTEND=noninteractive
-sudo apt-get -qq -y update
-sudo apt-get -qq -y install nvidia-cuda-dev
-
 # install nvidia cudnn 6 (works with tensorflow-gpu 1.3.0)
 # https://developer.nvidia.com/cudnn
 # https://developer.nvidia.com/rdp/cudnn-download
