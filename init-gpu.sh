@@ -29,10 +29,11 @@ nvidia-smi -q|head
 
 # install cuda 8
 # https://developer.nvidia.com/cuda-downloads
+# Requires downloading 2 GB
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo apt-get update
-sudp apt-get install cuda
+sudo apt-get install cuda
 
 # Install nvidia driver + nvidia-cuda development header files
 # comment out  nvidia-375 nvidia-375-dev
