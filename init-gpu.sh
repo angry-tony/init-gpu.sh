@@ -44,6 +44,7 @@ sudo apt-get -qq -y install nvidia-cuda-dev
 
 # install nvidia cudnn 6 (works with tensorflow-gpu 1.3.0)
 # https://developer.nvidia.com/cudnn
+# https://developer.nvidia.com/rdp/cudnn-download
 # Log in / Download / Download cuDNN v6.0 (April 27, 2017), for CUDA 8.0 / cuDNN v6.0 Runtime Library for Ubuntu16.04 (Deb)
 wget \
   http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v6/prod/8.0_20170427/Ubuntu16_04-x64/libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb?FJ-9yn3c0yI6peaW7lzlH4amGhYcJoDq1yvNaw8FW5M0n9s1uZwxvlkfQ7roCvVQJZ0TbTZPRFJOuv6cXTWG5QmrGON5SVGtBRlU08suwHCmcvQSmpLo9TFcy9ALmSwe9Y-UGbhPWaUMywCiEebE3IXvoPKsmtaofUaqZ9pRIwdmb3FXD-BIS4Xm1_CGU6oOQSZMPJS8Ng3B1bgi-KCeWJKJ-f2mn_DxLMPyCzbrMOo \
