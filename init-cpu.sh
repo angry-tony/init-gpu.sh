@@ -33,6 +33,3 @@ echo "PS1='# '">>~/.bashrc
 
 mkdir ~/.jupyter/
 echo "c.NotebookApp.password = u'sha1:8e63b3cd2b5e:5faf64fbd48ae73d6b14488f181d727326e573b4'" > ~/.jupyter/jupyter_notebook_config.py
-
-sudo mkdir /mnt/ec2vol && sudo chown ubuntu:ubuntu /mnt/ec2vol -R
-sudo mount /dev/xvdf /mnt/ec2vol/
