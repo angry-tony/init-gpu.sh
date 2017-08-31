@@ -30,8 +30,9 @@ nvidia-smi -q|head
 # Requires downloading 2 GB
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
-sudo apt-get update
-sudo apt-get install cuda
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get -qq -y update
+sudo apt-get -qq -y install cuda
 
 # install nvidia cudnn 6 (works with tensorflow-gpu 1.3.0)
 # https://developer.nvidia.com/cudnn
