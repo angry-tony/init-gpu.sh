@@ -18,9 +18,7 @@
 
 set -e
 
-# for GPU, install nvidia driver
-# ??? Did I miss the: wget http://...nvidia.com/.../...deb
-#                and  dpkg -i ...deb
+# install nvidia driver
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/384.66/NVIDIA-Linux-x86_64-384.66.run
 sudo /bin/sh NVIDIA-Linux-x86_64-384.66.run
 
@@ -39,10 +37,14 @@ sudo apt-get install cuda
 # https://developer.nvidia.com/cudnn
 # https://developer.nvidia.com/rdp/cudnn-download
 # Log in / Download / Download cuDNN v6.0 (April 27, 2017), for CUDA 8.0 / cuDNN v6.0 Runtime Library for Ubuntu16.04 (Deb)
+#
+# WILL NEED TO DOWNLOAD THIS MANUALLY EVERY TIME BECAUSE OF THE TOKEN IN THE URL
+# Example cudnn url below: http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v6/prod/8.0_20170427/Ubuntu16_04-x64/libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb?FJ-9yn3c0yI6peaW7lzlH4amGhYcJoDq1yvNaw8FW5M0n9s1uZwxvlkfQ7roCvVQJZ0TbTZPRFJOuv6cXTWG5QmrGON5SVGtBRlU08suwHCmcvQSmpLo9TFcy9ALmSwe9Y-UGbhPWaUMywCiEebE3IXvoPKsmtaofUaqZ9pRIwdmb3FXD-BIS4Xm1_CGU6oOQSZMPJS8Ng3B1bgi-KCeWJKJ-f2mn_DxLMPyCzbrMOo
+read -p "cudnn url: " CUDNN_URL
 wget \
-  http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v6/prod/8.0_20170427/Ubuntu16_04-x64/libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb?FJ-9yn3c0yI6peaW7lzlH4amGhYcJoDq1yvNaw8FW5M0n9s1uZwxvlkfQ7roCvVQJZ0TbTZPRFJOuv6cXTWG5QmrGON5SVGtBRlU08suwHCmcvQSmpLo9TFcy9ALmSwe9Y-UGbhPWaUMywCiEebE3IXvoPKsmtaofUaqZ9pRIwdmb3FXD-BIS4Xm1_CGU6oOQSZMPJS8Ng3B1bgi-KCeWJKJ-f2mn_DxLMPyCzbrMOo \
-  -O libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb
-sudo dpkg -i libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb
+  $CUDNN_URL \
+  -O libcudnn.deb
+sudo dpkg -i libcudnn.deb
   
 # install tensorflow-gpu
 pew in G2ML pip install tensorflow-gpu
