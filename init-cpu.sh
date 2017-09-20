@@ -26,6 +26,7 @@ pew new \
   -i slackclient \
   -i scikit-image \
   -i jupyter \
+  -i jupyterlab \
   -i tensorboard \
   G2ML
 
