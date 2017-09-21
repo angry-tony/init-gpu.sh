@@ -1,8 +1,10 @@
 #!/bin/sh
 # Use this when launching a new server, e.g. AWS spot instance
-# ssh file.pem user@ip "wget URL_OF_THIS_GIST -O - | /bin/sh"
+# ssh file.pem user@ip "wget https://gist.github.com/shadiakiki1986/0c9ea999113691fb9a7ae64e3541fe29/raw/init-cpu.sh -O - | /bin/sh"
 #
 # If launching a GPU instance, check also init-gpu.sh
+# Note: permalink to gist from
+# https://gist.github.com/atenni/5604615
 
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get -qq -y update
