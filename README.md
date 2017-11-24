@@ -1,0 +1,1 @@
+These are a few scripts that help me install requirements on fresh AWS EC2 instances for deep learning
