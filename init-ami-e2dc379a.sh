@@ -7,11 +7,18 @@
 
 # reload nvidia drivers for GPU
 # https://stackoverflow.com/a/45319156/4126114
-sudo rmmod nvidia_drm
-sudo rmmod nvidia_modeset
-sudo rmmod nvidia_uvm
-sudo rmmod nvidia
-nvidia-smi # should output GPU
+nvidia-smi > /dev/null
+if [ $? -ne 0 ]; do
+  sudo rmmod nvidia_drm
+  sudo rmmod nvidia_modeset
+  sudo rmmod nvidia_uvm
+  sudo rmmod nvidia
+  nvidia-smi # should output GPU
+  if [ $? -ne 0 ]; do
+    echo "failed to load gpu"
+    exit 1
+  done
+done
 
 # run my init-cpu.sh script
 wget https://gist.github.com/shadiakiki1986/0c9ea999113691fb9a7ae64e3541fe29/raw/init-cpu.sh -O - | /bin/sh
