@@ -21,6 +21,7 @@ if [ $? -ne 0 ]; do
 done
 
 # run my init-cpu.sh script
+sudo dpkg --configure -a # it seems this AMI had dpkg interrupted at some point
 wget https://gist.github.com/shadiakiki1986/0c9ea999113691fb9a7ae64e3541fe29/raw/init-cpu.sh -O - | /bin/sh
 
 # for gpu
