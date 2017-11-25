@@ -10,7 +10,7 @@ set +x
 set -e
 
 # commenting out this section since pip3 already available usually
-# export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 # sudo apt-get -qq -y update
 # sudo apt-get -qq -y install python3 python3-pip
 
