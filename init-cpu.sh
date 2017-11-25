@@ -6,6 +6,9 @@
 # Note: permalink to gist from
 # https://gist.github.com/atenni/5604615
 
+set +x
+set -e
+
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get -qq -y update
 sudo apt-get -qq -y install python3 python3-pip
@@ -38,5 +41,5 @@ pew new \
 
 echo "PS1='# '">>~/.bashrc
 
-mkdir ~/.jupyter/
+mkdir -p ~/.jupyter/
 echo "c.NotebookApp.password = u'sha1:8e63b3cd2b5e:5faf64fbd48ae73d6b14488f181d727326e573b4'" > ~/.jupyter/jupyter_notebook_config.py
