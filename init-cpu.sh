@@ -21,6 +21,7 @@ sudo pip3 install pew
 # until https://github.com/fchollet/keras/pull/7566/files/f2b66a02067cd5a0bc7291231c5fe59f355ff2ad#r134733445
 # and use keras 2.0.6 and not 2.0.7
 pew new \
+  --python=python3 \
   -d \
   -i sklearn \
   -i pandas \
