@@ -39,6 +39,7 @@ pew new \
   -i hyperas \
   -i networkx==1.11 \
   -i statsmodels \
+  -i tables \
   G2ML
 
 echo "PS1='# '">>~/.bashrc
